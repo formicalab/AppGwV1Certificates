@@ -21,7 +21,7 @@ $certs = $appgw | Get-AzApplicationGatewaySslCertificate
 # Output the certificates showing details
 foreach ($cert in $certs) {
 
-    $certBytes = [Convert]::FromBase64String($certs[0].PublicCertData)
+    $certBytes = [Convert]::FromBase64String($cert.PublicCertData)
     $certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
     $certCollection.Import($certBytes)
 
